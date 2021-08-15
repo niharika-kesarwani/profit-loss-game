@@ -18,9 +18,8 @@ body{
     font-size: 1.5rem;
 }
 
-#stock-price #stock-qty #current-price {
+#stock-price, #stock-qty, #current-price{
     text-align: center;
-    display: block;
 }
 
 #submit-btn{
