@@ -10,16 +10,29 @@ function handleSubmit() {
     var sp = Number(stockPrice.value);
     var qty = Number(stockQty.value);
     var curr = Number(currentPrice.value);
-    calculateProfitLoss(sp, qty, curr);
+    if(isNaN(sp) || isNaN(qty) || isNaN(curr)){
+        errorInfo("Please enter numerical inputs !!");
+        document.body.style.background = "yellow";
+    }
+    else if (stockPrice.value=='' || stockQty.value=='' || currentPrice.value=='') {
+        errorInfo("Please fill out the empty fields !!");
+        document.body.style.background = "yellow";
+    }
+    else {
+        calculateProfitLoss(sp, qty, curr);
+    }
 }
 
 function calculateProfitLoss(price, quantity, current) {
     if (price < current) {
         calculate(price, current, quantity, 0);
+        document.body.style.background = "rgb(144, 238, 144)";
     } else if (price > current) {
         calculate(price, current, quantity, 1);
+        document.body.style.background = "#ff00009a";
     } else {
         calculate(current, price, quantity, 2);
+        document.body.style.background = "yellow";
     }
 }
 
