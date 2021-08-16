@@ -18,6 +18,10 @@ function handleSubmit() {
         errorInfo("Please fill out the empty fields !!");
         document.body.style.background = "yellow";
     }
+    else if (sp<0 || qty<0 || curr<0) {
+        errorInfo("Please enter positive inputs !!");
+        document.body.style.background = "yellow";
+    }
     else {
         calculateProfitLoss(sp, qty, curr);
     }
